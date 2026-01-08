@@ -1,0 +1,353 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-image: url(image-background-1k7jh9gba5b3le6v.jpg);
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+body::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgb(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+}
+.main-container{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    border: none;
+    width: 450px;
+    height: 600px;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.15),
+    rgb(255, 255, 255, 0.15));
+    border-radius: 25px;
+    box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.55),    
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    z-index: 5;
+    
+    color: #fff;
+    padding: 20px;
+
+    display: flex;
+    gap: 30px;
+
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+
+    overflow: visible;
+
+}
+.main-container header{
+    position: relative;
+}
+.main-container header input{
+    height: 50px;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 99px;
+    border: 2px solid transparent;
+    background: rgb(0,0,0, 0.15);
+    outline: none;
+    font-weight: 400;
+    transition: 0.25s border;
+    padding-right: 50px;
+    color: white;
+}
+.main-container header input:focus{
+    border: 3px solid rgb(0, 0, 0, 0.15);
+}
+.main-container header input::placeholder{
+    color: rgba(255, 255, 255, 0.75);
+}
+.main-container .search-button{
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+.section-1{
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section-1 > .location-icon-header{
+    display: flex;
+    gap: 10px 12px;
+    align-items: center;
+}
+.section-1> .day-date{
+    padding-right: 10px;
+}
+.section-2{
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section-2 .image img {
+    width: 130px;
+    height: 130px;
+}
+.section-2 > .temp-cloud{  
+    padding: 10px;
+    text-align: center;
+}
+.section-3{
+    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 20px;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#windSpeed, #humidity{
+    text-align: center;
+}
+.whether-info img{
+    height: 80px;
+    width: 80px;
+}
+
+.section-4{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-left: 15px;
+}
+.forcast-item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 15px;
+    overflow: scroll;
+}
+.forcast-item-container::-webkit-scrollbar{
+    display: none;
+}
+.section-4 .forcast-item-container .forcast-item{
+    height: 130px;
+    width: 100%;
+
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.123);
+    border-radius: 12px;
+}
+.section-4 .forcast-item img {
+    height: 80px;
+    width: 80px;
+    
+}
+
+
+/* =========================
+   Mobile devices (max 480px)
+========================= */
+@media (max-width: 480px) {
+
+    .main-container {
+        width: 92vw;        /* responsive width */
+        max-width: 360px;   /* limit so it never looks big */
+        height: auto;       /* let content decide height */
+        min-height: 520px;  /* keeps card balanced */
+        padding: 14px;
+        gap: 18px;
+        border-radius: 18px;
+    }
+
+    /* search input smaller */
+    .main-container header input {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    /* top section */
+    .section-1 h3 {
+        font-size: 16px;
+    }
+
+    .section-1 h4 {
+        font-size: 13px;
+    }
+
+    /* temperature section */
+    #temp {
+        font-size: 2.3rem;
+    }
+
+    #condition {
+        font-size: 1rem;
+    }
+
+    .section-2 .image img {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* humidity & wind */
+    .section-3 {
+        gap: 14px;
+    }
+
+    .whether-info img {
+        width: 55px;
+        height: 55px;
+    }
+
+    #humidity,
+    #windSpeed {
+        font-size: 14px;
+    }
+
+    /* forecast cards */
+    .forcast-item {
+        min-width: 85px;
+        height: 110px;
+        padding: 6px;
+    }
+
+    .forcast-item img {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+
+/* =========================
+   Tablets (481px – 900px)
+========================= */
+@media (min-width: 481px) and (max-width: 900px) {
+
+    .main-container {
+        width: 80vw;        /* responsive */
+        max-width: 420px;   /* tablet sweet spot */
+        height: auto;
+        min-height: 560px;
+        padding: 18px;
+        gap: 22px;
+        border-radius: 22px;
+    }
+
+    /* search bar */
+    .main-container header input {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    /* location & date */
+    .section-1 h3 {
+        font-size: 18px;
+    }
+
+    .section-1 h4 {
+        font-size: 14px;
+    }
+
+    /* temperature */
+    #temp {
+        font-size: 2.8rem;
+    }
+
+    #condition {
+        font-size: 1.2rem;
+    }
+
+    .section-2 .image img {
+        width: 110px;
+        height: 110px;
+    }
+
+    /* humidity & wind */
+    .section-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .whether-info img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #humidity,
+    #windSpeed {
+        font-size: 15px;
+    }
+
+    /* forecast cards */
+    .forcast-item {
+        min-width: 95px;
+        height: 120px;
+        padding: 8px;
+    }
+
+    .forcast-item img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .section-2 .image img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .whether-info img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .forcast-item {
+        min-width: 100px;
+    }
+}
+
+/* =========================
+   Small laptops (769px – 1024px)
+========================= */
+@media (max-width: 1024px) {
+    .main-container {
+        width: 420px;
+        height: auto;
+    }
+}
