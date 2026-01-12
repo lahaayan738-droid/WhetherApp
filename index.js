@@ -1,4 +1,5 @@
-
+const container = document.querySelector(".main-container");
+const beforeSearch = document.querySelector(".beforeSearch");
 let inputValue = document.querySelector("header input");
 let searchBtn = document.querySelector(".search-button");
 let cityHeading = document.querySelector("#cityName");
@@ -13,20 +14,28 @@ let whetherIcon = document.querySelector(".image img");
 let forcastImg = document.querySelectorAll(".forcastImg");
 
 const fetchData = async (city)=>{
-    let key = "d5bcb97feea444b8b1625550260701";
-    let URL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city},India&days=7`;
-    let response = await fetch(URL);
-    let data = await response.json();
-    return data;
+  let key = "d5bcb97feea444b8b1625550260701";
+  let URL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city},India&days=7`;
+  let response = await fetch(URL);
+  let data = await response.json();
+  return data;
 };
 searchBtn.addEventListener("click", async()=>{
-    handleSearch();
+  handleSearch();
+  showWhethereUi();
 });
 inputValue.addEventListener("keydown", async (e)=>{
     if(e.key == "Enter"){
-        handleSearch();
+      handleSearch();
+      showWhethereUi();
     }
-})
+})  
+function showWhethereUi(){
+  if(!inputValue) return;
+  beforeSearch.style.display="none";
+  container.classList.add("show-content");
+
+}
 async function handleSearch(){
   let cityName = inputValue.value.trim();
       if(!cityName)
@@ -167,31 +176,6 @@ function setForcastIcons(data){
   });
 }
 
-// function setForcastIcons(data){
-//   forcastImg[0].src = forcastingImg(data.forecast.forecastday[1].day.condition.code);
-//   forcastImg[1].src = forcastingImg(data.forecast.forecastday[2].day.condition.code);
-//   forcastImg[2].src = forcastingImg(data.forecast.forecastday[3].day.condition.code);
-//   forcastImg[3].src = forcastingImg(data.forecast.forecastday[4].day.condition.code);
-//   forcastImg[4].src = forcastingImg(data.forecast.forecastday[5].day.condition.code);
-//   forcastImg[5].src = forcastingImg(data.forecast.forecastday[6].day.condition.code);
-// }
-
-// function forcastTemp(data) {
-//   forcastHeader[0].innerHTML = `${data.forecast.forecastday[1].day.avgtemp_c}°C`;
-//   forcastHeader[1].innerHTML = `${data.forecast.forecastday[2].day.avgtemp_c}°C`;
-//   forcastHeader[2].innerHTML = `${data.forecast.forecastday[3].day.avgtemp_c}°C`;
-//   forcastHeader[3].innerHTML = `${data.forecast.forecastday[4].day.avgtemp_c}°C`;
-//   forcastHeader[4].innerHTML = `${data.forecast.forecastday[5].day.avgtemp_c}°C`;
-//   forcastHeader[5].innerHTML = `${data.forecast.forecastday[6].day.avgtemp_c}°C`;
-// }
-// function forcastDateContent(data) {
-//   forcastDate[0].innerHTML = formatDate(data.forecast.forecastday[1].date);
-//   forcastDate[1].innerHTML = formatDate(data.forecast.forecastday[2].date);
-//   forcastDate[2].innerHTML = formatDate(data.forecast.forecastday[3].date);
-//   forcastDate[3].innerHTML = formatDate(data.forecast.forecastday[4].date);
-//   forcastDate[4].innerHTML = formatDate(data.forecast.forecastday[5].date);
-//   forcastDate[5].innerHTML = formatDate(data.forecast.forecastday[6].date);
-// }
 
 
 

@@ -351,3 +351,44 @@ body::before{
         height: auto;
     }
 }
+.main-container{
+    min-height: 600px;
+}
+.main-container.show-content .section-1,
+.main-container.show-content .section-2,
+.main-container.show-content .section-3,
+.main-container.show-content .section-4 {
+    display: flex;
+}
+
+.section-1,
+.section-2,
+.section-3,
+.section-4 {
+    display: none;
+}
+
+
+.main-container .beforeSearch{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+.main-container .beforeSearch img{
+    height: 200px;
+    width: 200px;
+}
+.main-container .beforeSearch span {
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(180deg, #382d2d, #43494e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
